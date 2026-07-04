@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>한 눈에 보는 기독교 8개 교단 비교</title>
+<style>
+  :root{
+    --ink:#232019; --sub:#6b6357; --line:#e7e1d6; --paper:#faf7f1;
+    --gold:#a9803f; --gold-soft:#f3ead9;
+    --home:#1f5b8a; --home-bg:#e8f0f7;      /* 개혁/장로 — 홈베이스 */
+    --q:#9c4b52; --q-bg:#f8ecec;
+    --view:#2f6f6a; --view-bg:#e6f1ef;       /* 개혁주의 관점 박스 */
+    /* 교단 색 */
+    --c-lu:#8a2b2b; --c-pr:#1f5b8a; --c-an:#6a3d7a; --c-ba:#1f7a68;
+    --c-me:#c25a2a; --c-ho:#9a6a1f; --c-pe:#c0392b; --c-sa:#a01f3c;
+    --c-rc:#7d7468; --c-eo:#96772a;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;
+    line-height:1.72; font-size:16px; letter-spacing:-.01em; -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:900px; margin:0 auto; padding:0 22px 96px;}
+
+  /* Header */
+  header{padding:60px 0 30px; border-bottom:2px solid var(--ink); margin-bottom:6px;}
+  .eyebrow{font-size:.8rem; letter-spacing:.22em; color:var(--gold); font-weight:700; text-transform:uppercase;}
+  h1{font-size:2.15rem; line-height:1.26; margin:.5rem 0 .6rem; font-weight:800; letter-spacing:-.02em;}
+  .lead-p{font-size:1.05rem; color:#3f3a30; margin:.4rem 0 0;}
+  .meta{display:flex; flex-wrap:wrap; gap:6px 10px; font-size:.84rem; color:var(--sub); margin-top:16px;}
+  .meta span{background:#fff; border:1px solid var(--line); border-radius:20px; padding:3px 12px;}
+
+  /* nav pills */
+  nav.toc{position:sticky; top:0; z-index:20; background:rgba(250,247,241,.94); backdrop-filter:blur(6px);
+    display:flex; flex-wrap:wrap; gap:7px; padding:12px 0; margin-bottom:8px; border-bottom:1px solid var(--line);}
+  nav.toc a{font-size:.82rem; text-decoration:none; color:var(--sub); background:#fff; border:1px solid var(--line);
+    padding:5px 12px; border-radius:20px;}
+  nav.toc a:hover{color:var(--gold); border-color:var(--gold);}
+
+  section{margin-top:50px;}
+  .sec-head{display:flex; align-items:baseline; gap:13px; padding-bottom:10px; border-bottom:1px solid var(--line);}
+  .sec-no{font-size:.76rem; font-weight:800; letter-spacing:.12em; color:#fff; background:var(--gold);
+    padding:5px 11px; border-radius:6px; white-space:nowrap;}
+  .sec-head h2{font-size:1.5rem; margin:0; font-weight:800;}
+  .sec-sub{color:var(--sub); font-size:.92rem; margin:10px 0 0;}
+
+  /* 계보 tree */
+  .lineage{margin-top:22px;}
+  .l-root{text-align:center; margin-bottom:8px;}
+  .l-root .node{display:inline-block; background:var(--ink); color:#fff; font-weight:800; padding:9px 20px; border-radius:9px;}
+  .l-root small{display:block; color:var(--sub); margin-top:8px; font-size:.82rem;}
+  .l-cols{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:16px;}
+  .l-fam{border:1px solid var(--line); border-radius:12px; padding:14px 15px; background:#fff;}
+  .l-fam h4{margin:0 0 4px; font-size:.98rem;}
+  .l-fam .fam-tag{font-size:.73rem; font-weight:700; color:var(--sub);}
+  .l-fam ul{margin:10px 0 0; padding-left:0; list-style:none;}
+  .l-fam li{margin:6px 0; padding:5px 10px; border-radius:7px; font-size:.9rem; font-weight:600; color:#fff;}
+  .pre-ref{margin-top:14px; text-align:center; font-size:.86rem; color:var(--sub);}
+  .pre-ref span{display:inline-block; background:#efeae1; border:1px solid var(--line); color:#5a5449;
+    padding:4px 12px; border-radius:20px; margin:0 4px; font-weight:600;}
+
+  /* 탄생 스토리 timeline */
+  .timeline{margin-top:24px; position:relative; padding-left:28px;}
+  .timeline::before{content:""; position:absolute; left:8px; top:8px; bottom:8px; width:2px; background:var(--line);}
+  .tl{position:relative; margin:0 0 24px;}
+  .tl::before{content:""; position:absolute; left:-24px; top:5px; width:14px; height:14px; border-radius:50%;
+    background:#fff; border:3px solid var(--acc,var(--gold)); box-shadow:0 0 0 3px var(--paper);}
+  .tl .yr{font-size:.78rem; font-weight:800; color:var(--acc,var(--gold)); letter-spacing:.06em;}
+  .tl h4{margin:3px 0 5px; font-size:1.1rem; font-weight:800; display:flex; align-items:center; gap:9px; flex-wrap:wrap;}
+  .tl .hook{color:#2b2720;}
+  .tl p{margin:6px 0 0; font-size:.92rem; color:#463f34; line-height:1.7;}
+  .tl .tq{margin:9px 0 0; padding:9px 14px; background:#fbf7ef; border-left:3px solid var(--acc,var(--gold));
+    border-radius:8px; font-size:.87rem; color:#4a4133;}
+  .tl .tq .src{display:block; margin-top:4px; font-size:.76rem; color:var(--sub);}
+
+  /* denomination chips */
+  .chip{display:inline-block; color:#fff; font-weight:700; font-size:.82rem; padding:2px 9px; border-radius:20px;}
+  .lu{background:var(--c-lu);} .pr{background:var(--c-pr);} .an{background:var(--c-an);} .ba{background:var(--c-ba);}
+  .me{background:var(--c-me);} .ho{background:var(--c-ho);} .pe{background:var(--c-pe);} .sa{background:var(--c-sa);}
+  .rc{background:var(--c-rc);} .eo{background:var(--c-eo);}
+
+  /* matrix table */
+  .tscroll{overflow-x:auto; margin-top:20px; border:1px solid var(--line); border-radius:12px;}
+  table{border-collapse:collapse; width:100%; min-width:640px; font-size:.88rem; background:#fff;}
+  th,td{padding:10px 12px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top;}
+  thead th{background:var(--gold-soft); color:#4a3d28; font-weight:800; position:sticky; left:0;}
+  thead th:first-child{position:sticky; left:0; z-index:2;}
+  tbody th{font-weight:700; white-space:nowrap; background:#fbf8f2;}
+  tbody tr.home{background:var(--home-bg);}
+  tbody tr.ref td, tbody tr.ref th{color:#6b6357; font-style:italic;}
+  td small{color:var(--sub);}
+
+  /* denom cards */
+  .dgrid{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:20px;}
+  .dcard{background:#fff; border:1px solid var(--line); border-radius:13px; padding:16px 17px; border-top:4px solid;}
+  .dcard.b-lu{border-top-color:var(--c-lu);} .dcard.b-pr{border-top-color:var(--c-pr);}
+  .dcard.b-an{border-top-color:var(--c-an);} .dcard.b-ba{border-top-color:var(--c-ba);}
+  .dcard.b-me{border-top-color:var(--c-me);} .dcard.b-ho{border-top-color:var(--c-ho);}
+  .dcard.b-pe{border-top-color:var(--c-pe);} .dcard.b-sa{border-top-color:var(--c-sa);}
+  .dcard h3{margin:0 0 2px; font-size:1.14rem; font-weight:800;}
+  .dcard .en{font-size:.76rem; color:var(--sub); letter-spacing:.04em;}
+  .dcard .facts{margin:11px 0 8px; font-size:.83rem; color:var(--sub); line-height:1.5;}
+  .dcard .facts b{color:#463f34;}
+  .dcard .oneline{font-size:.92rem; color:#3f3a30; margin:6px 0 0; padding-top:8px; border-top:1px dashed var(--line);}
+  .dcard.b-pr .oneline::before{content:"🏠 "; }
+  .kr{display:inline-block; font-size:.76rem; background:#f1ece2; border:1px solid var(--line);
+    color:#5a5449; padding:1px 8px; border-radius:12px; margin:2px 3px 0 0;}
+
+  /* axis accordions */
+  .axis{background:#fff; border:1px solid var(--line); border-radius:12px; margin:12px 0; overflow:hidden;}
+  .axis>summary{list-style:none; cursor:pointer; padding:15px 18px; font-weight:800; font-size:1.05rem;
+    display:flex; align-items:center; gap:11px; justify-content:space-between;}
+  .axis>summary::-webkit-details-marker{display:none;}
+  .axis>summary .axl{display:flex; align-items:center; gap:11px;}
+  .axis>summary .axno{font-size:.8rem; font-weight:800; color:#fff; background:var(--gold); width:26px; height:26px;
+    display:flex; align-items:center; justify-content:center; border-radius:7px; flex:none;}
+  .axis>summary::after{content:"+"; color:var(--sub); font-weight:700; font-size:1.3rem; line-height:1;}
+  .axis[open]>summary::after{content:"\2212";}
+  .axis[open]>summary{border-bottom:1px solid var(--line); background:var(--gold-soft);}
+  .axis .abody{padding:16px 18px 20px;}
+  .axis .abody>p:first-child{margin-top:0;}
+  .cov{font-size:.74rem; font-weight:700; padding:2px 8px; border-radius:12px; margin-left:2px;}
+  .cov.full{background:var(--view-bg); color:var(--view);}
+  .cov.ext{background:#f7ecdf; color:#8a5a2b;}
+
+  /* 개혁주의 관점 box */
+  .view{margin:16px 0 6px; padding:15px 18px; background:var(--view-bg); border:1px solid #cfe0dd;
+    border-left:5px solid var(--view); border-radius:11px;}
+  .view .vlab{font-size:.75rem; font-weight:800; letter-spacing:.05em; color:var(--view); text-transform:uppercase;}
+  .view p{margin:7px 0 0;}
+  .quote{margin:14px 0; padding:13px 17px; background:#fbf7ef; border-left:4px solid var(--gold); border-radius:9px;
+    font-size:.9rem; color:#4a4133;}
+  .quote .src{display:block; margin-top:6px; font-size:.78rem; color:var(--sub); font-style:normal;}
+  .abody ul{padding-left:1.1rem; margin:.4rem 0;}
+  .abody li{margin:.35rem 0;}
+
+  /* poles diagram (종말론) */
+  .poles{display:flex; align-items:stretch; gap:0; margin-top:16px; border:1px solid var(--line); border-radius:12px; overflow:hidden;}
+  .pole{flex:1; padding:15px 16px;}
+  .pole.a{background:var(--home-bg);} .pole.b{background:#fbeeea;}
+  .pole h4{margin:0 0 5px; font-size:.98rem;}
+  .pole.a h4{color:var(--c-pr);} .pole.b h4{color:var(--c-pe);}
+  .pole p{margin:0; font-size:.86rem; color:#463f34;}
+  .pole-mid{display:flex; align-items:center; padding:0 4px; color:var(--sub); font-weight:800;}
+
+  /* closing */
+  .closing{margin-top:20px; padding:24px 26px; background:linear-gradient(135deg,#1f5b8a,#2f6f6a); color:#fff; border-radius:14px;}
+  .closing h3{margin:0 0 10px; font-size:1.2rem;}
+  .closing p{margin:.5rem 0; opacity:.95;}
+  .closing .accent{color:#ffe6b8; font-weight:700;}
+
+  footer{margin-top:52px; padding-top:20px; border-top:1px solid var(--line); font-size:.8rem; color:var(--sub);}
+  footer b{color:#463f34;}
+  .disc{font-size:.78rem; color:var(--sub); margin-top:10px; padding:12px 15px; background:#fff; border:1px solid var(--line); border-radius:10px;}
+
+  @media (max-width:620px){
+    h1{font-size:1.7rem;} body{font-size:15px;}
+    .dgrid{grid-template-columns:1fr;} .l-cols{grid-template-columns:1fr;}
+    .poles{flex-direction:column;} .pole-mid{padding:6px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="eyebrow">Denominations · 한 지붕 여덟 갈래</div>
+    <h1>한 눈에 보는<br>기독교 8개 교단 비교</h1>
+    <p class="lead-p">종교개혁이 낳은 한 가족, 그 여덟 갈래를 <b>형성사·구원론·세례·성찬·교회정치</b> 등 9개 축으로 정직하게 비교합니다. 개혁주의(장로교)를 <b>기준점(home base)</b>으로 두되, 각 교단을 <b>정확히, 그리고 존중하며</b> 다룹니다.</p>
+    <div class="meta">
+      <span>⛪ 개신교 8교단 + 가톨릭·정교회(참고)</span>
+      <span>📐 9개 비교 축</span>
+      <span>🧭 개혁주의 관점 병기</span>
+      <span>📚 1차 교리문서 근거</span>
+    </div>
+  </header>
+
+  <nav class="toc">
+    <a href="#lineage">계보</a>
+    <a href="#story">탄생 스토리</a>
+    <a href="#matrix">한눈에</a>
+    <a href="#cards">교단 카드</a>
+    <a href="#axes">9축 심층</a>
+    <a href="#korea">한국 지형도</a>
+    <a href="#close">맺음</a>
+  </nav>
+
+  <!-- ① 계보 -->
+  <section id="lineage">
+    <div class="sec-head"><span class="sec-no">01</span><h2>한 뿌리에서 갈라진 가족</h2></div>
+    <p class="sec-sub">교파(상위 전통) vs 교단(하위 법적 주체). 개신교는 종교개혁(1517)이라는 한 사건에서 갈라져 나온 형제들입니다. 볼트는 이들을 크게 <b>세 계열</b>로 묶습니다.</p>
+
+    <div class="lineage">
+      <div class="l-root">
+        <span class="node">종교개혁 · 1517</span>
+        <small>마르틴 루터 「95개조 반박문」 — "오직 성경·오직 은혜·오직 믿음·오직 그리스도·오직 하나님께 영광"</small>
+      </div>
+      <div class="l-cols">
+        <div class="l-fam">
+          <h4>개혁·루터주의</h4>
+          <div class="fam-tag">하나님의 주권 + 5 Sola</div>
+          <ul>
+            <li class="pr">장로교 (개혁)</li>
+            <li class="lu">루터교</li>
+          </ul>
+        </div>
+        <div class="l-fam">
+          <h4>웨슬리주의</h4>
+          <div class="fam-tag">신인협력 · 완전성화</div>
+          <ul>
+            <li class="me">감리교</li>
+            <li class="ho">성결교</li>
+            <li class="pe">오순절 (순복음)</li>
+            <li class="sa">구세군</li>
+          </ul>
+        </div>
+        <div class="l-fam">
+          <h4>공존형</h4>
+          <div class="fam-tag">개혁주의 ↔ 아르미니우스 병존</div>
+          <ul>
+            <li class="ba">침례교</li>
+            <li class="an">성공회 (중용)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="pre-ref">
+        종교개혁 이전 · 참고 대조군 &nbsp;→&nbsp;
+        <span>로마 가톨릭</span> <span>동방 정교회</span>
+        <br><small style="color:var(--sub)">1054년 동서 대분열로 갈라진 두 전통 — 개신교 밖의 기준선</small>
+      </div>
+    </div>
+  </section>
+
+  <!-- ② 탄생 스토리 -->
+  <section id="story">
+    <div class="sec-head"><span class="sec-no">02</span><h2>각 교단은 이렇게 태어났다</h2></div>
+    <p class="sec-sub">교리 이전에 <b>사람과 사건</b>이 있었습니다. 어떤 시대에, 어떤 방아쇠로, 누가 세웠는가 — 1054년 동서 분열부터 1906년 아주사 부흥까지, 갈라짐의 이야기.</p>
+
+    <div class="timeline">
+
+      <div class="tl" style="--acc:var(--c-rc)">
+        <div class="yr">1054 · 서막</div>
+        <h4>동서 대분열 <span class="hook">— 제단 위에 던져진 파문장</span></h4>
+        <p>헬라어의 동방과 라틴어의 서방은 330년 수도 이전 이래 서서히 멀어졌고, 서방이 신조에 "성령이 성자<b>로부터도</b> 나온다"는 <b>필리오케</b> 구절을 임의로 끼워 넣으며 골이 깊어졌다. 1054년, 교황 사절 훔베르토 추기경이 콘스탄티노플 총대주교를 파문하는 교서를 <b>아야 소피아 제단 위에 그대로 내던지고 발의 먼지를 털며 걸어 나갔다.</b> 1204년 4차 십자군의 콘스탄티노플 약탈로 상처는 굳었고, 파문은 <b>911년 뒤인 1965년에야</b> 상호 철회됐다.</p>
+      </div>
+
+      <div class="tl" style="--acc:var(--c-lu)">
+        <div class="yr">1517 · 루터교</div>
+        <h4><span class="chip lu">루터교</span> <span class="hook">벼락 맞은 광부의 아들</span></h4>
+        <p>법대생 마르틴 루터는 벼락을 만나 공포 속에 서원한다 — <b>"성 안나여, 저를 구해주시면 수사가 되겠습니다."</b> 수도원에서도 죄책감에 짓눌리던 그를 스승 슈타우피츠가 "그리스도의 상처를 보라"는 말로 돌려세웠고, 이 씨름 끝에 이신칭의(롬1:17)를 깨닫는다. 면벌부 상인 테첼의 호객에 격분해 1517년 95개조를 내걸자 갓 나온 활자가 전 독일에 퍼뜨렸고, 1521년 보름스 제국의회에서 그는 철회를 거부한다.</p>
+        <div class="tq">"제가 여기 서 있습니다. 하나님, 저를 도우소서. 아멘!"<span class="src">— 보름스 의회, 1521 (볼트 「루터, Here I」)</span></div>
+      </div>
+
+      <div class="tl" style="--acc:var(--c-pr)">
+        <div class="yr">1536~1560 · 장로교</div>
+        <h4><span class="chip pr">장로교</span> <span class="hook">저주에 붙잡힌 학자</span></h4>
+        <p>취리히의 츠빙글리는 "성경에 없는 규정이다!"라며 <b>일부러 금식 규정을 어기고 소시지를 먹는</b> 상징 행동으로 더 급진적 개혁을 밀어붙였다. 조용히 공부만 하려던 <b>칼뱅</b>은 하룻밤 묵은 제네바에서 개혁자 파렐에게 붙잡힌다 — 거절하는 그에게 파렐이 <b>"학문의 평온을 찾는다면 하나님께서 그대의 평화를 저주하시기를!"</b>이라 퍼붓자 겁먹은 칼뱅이 눌러앉아 목사·장로가 함께 다스리는 '당회'를 세웠다. 이 모델을 <b>존 녹스</b>가 1560년 스코틀랜드로 가져가, 국가 차원 장로교를 세운 최초의 나라를 만들었다.</p>
+      </div>
+
+      <div class="tl" style="--acc:var(--c-an)">
+        <div class="yr">1534 · 성공회</div>
+        <h4><span class="chip an">성공회</span> <span class="hook">왕의 이혼이 낳은 교회</span></h4>
+        <p>성공회는 교리 논쟁이 아니라 <b>왕의 이혼 문제</b>에서 태어났다. 후계자를 원한 헨리 8세의 이혼을 교황이 불허하자, 1534년 <b>수장령</b>으로 교황권을 부정하고 스스로 영국 교회의 수장이 되었다. 대주교 크랜머가 밑그림을 그렸으나, 가톨릭 신자 '피의 메리'가 크랜머를 화형에 처하며 나라가 피로 얼룩졌다. 그 뒤 <b>엘리자베스 1세가 "39개 신조"로 로마와 개신교의 극단을 피하는 '중용(Via Media)'</b>을 확립하며 정착시켰고, 그래서 오늘도 가톨릭 예전과 개신교 신학이 한 지붕 아래 공존한다.</p>
+      </div>
+
+      <div class="tl" style="--acc:var(--c-ba)">
+        <div class="yr">1609 · 침례교</div>
+        <h4><span class="chip ba">침례교</span> <span class="hook">스스로에게 세례를 준 사람</span></h4>
+        <p>영국 국교회에서 완전히 갈라지려던 분리주의 청교도가 네덜란드로 망명해 재세례파를 만나 <b>"세례는 오직 신앙을 고백하는 신자에게만"</b>이라는 원리를 받았다. 지도자 <b>존 스미스</b>는 유아세례가 무효라면 자기 세례도 무효라 여겨, 1609년 <b>먼저 자기 자신에게 세례를 베푼 뒤(se-baptism)</b> 최초의 침례교회를 세웠다. 동료 헬위스는 영국으로 돌아가 정교분리·종교자유를 외치다 옥사했고, 그 불씨가 대서양을 건너 로저 윌리엄스의 로드아일랜드(1639) '양심의 자유' 실험장으로 이어졌다.</p>
+      </div>
+
+      <div class="tl" style="--acc:var(--c-me)">
+        <div class="yr">1738 · 감리교</div>
+        <h4><span class="chip me">감리교</span> <span class="hook">올더스게이트에서 뜨거워진 마음</span></h4>
+        <p>옥스퍼드 학생 웨슬리 형제가 경건을 <b>"규칙적으로(method)"</b> 실행하자 사람들이 비웃으며 붙인 별명 '메소디스트'가 교파 이름이 됐다. 조지아 선교에 실패하고 돌아오던 대서양 폭풍 속, 태연히 찬양하던 모라비안 교도를 보고 자신에게 구원의 확신이 없음을 깨달은 웨슬리는, 1738년 런던 올더스게이트 집회에서 극적으로 회심한다. 강단을 못 얻자 광부에게 <b>야외 설교</b>를 시작했고, 미국 독립전쟁으로 성례 집전자가 사라지자 1784년 미국 감리교회로 독립했다.</p>
+        <div class="tq">"내 마음이 이상하게 뜨거워지는 것을 느꼈다(I felt my heart strangely warmed)."<span class="src">— 웨슬리 일기, 1738.5.24 (볼트 「세계교회사 15강」)</span></div>
+      </div>
+
+      <div class="tl" style="--acc:var(--c-ho)">
+        <div class="yr">19세기~1907 · 성결교</div>
+        <h4><span class="chip ho">성결교</span> <span class="hook">"두 번째 은혜"를 좇아</span></h4>
+        <p>부흥의 열기로 끓던 19세기 미국에서 부흥사 찰스 피니와 여성 지도자 피비 파머가 웨슬리의 '완전 성화'를 다시 불붙였다. 회심 이후 성령세례로 받는 <b>"두 번째 축복(Second Blessing)"</b> 강조가 뜨거워지며 기성 감리교와 결이 갈라졌고, 급진파는 <b>"중생·성결·신유·재림"의 사중복음</b>을 내세웠다. 한국 성결교의 출발도 여기 — 동양선교회 성서학원을 나온 두 젊은 전도자 <b>김상준·정빈이 1907년 경성 염곡에 '복음전도관'을 열고 사중복음을 선포한 것</b>이 기원이다.</p>
+      </div>
+
+      <div class="tl" style="--acc:var(--c-pe)">
+        <div class="yr">1901 · 1906 · 오순절</div>
+        <h4><span class="chip pe">오순절</span> <span class="hook">방언, 그리고 인종을 지운 부흥</span></h4>
+        <p>부흥사 찰스 파햄이 캔자스에 세운 벧엘 성경학교에서, <b>1901년 1월 1일 송구영신 예배 중 제자 애그니스 오즈먼에게 안수하자 방언이 터졌다.</b> 파햄의 단기학교에서 흑백 분리법 탓에 <b>복도에 앉아 강의를 듣던 흑인 목사 윌리엄 시무어</b>가, 1906년 로스앤젤레스 낡은 건물에서 시작한 <b>아주사 거리 부흥</b>이 오순절 운동의 진앙이 됐다. 그 핵심은 방언 자체가 아니었다.</p>
+        <div class="tq">"방언보다 더 중요한 것은, 성령께서 인종 차별의 차이를 지워버리신 것이다."<span class="src">— 볼트 「세계교회사 19강」</span></div>
+      </div>
+
+      <div class="tl" style="--acc:var(--c-sa)">
+        <div class="yr">1865 · 구세군</div>
+        <h4><span class="chip sa">구세군</span> <span class="hook">런던 빈민가에 세운 '군대'</span></h4>
+        <p>산업혁명의 그늘, 교회조차 가난한 이를 불편해하던 시대에 구세군이 태어났다. 감리교 목사였던 <b>윌리엄 부스</b>는 교회 담장 밖 사람들에게 복음을 전하려 목사직을 사임하고, 아내이자 강력한 설교자였던 <b>캐서린 부스</b>와 함께 1865년 런던 <b>이스트엔드 빈민가</b>로 들어가 '기독선교회'를 세웠다. 1878년 이를 <b>군대식 지휘 체계로 재편하며 '구세군'으로 개칭</b>했고(부스=대장, 사역자=사관), 1896년 자선냄비를 시작했으며, 선교에 부담이 된다며 성례마저 폐지하는 파격을 택했다.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ③ 한눈에 매트릭스 -->
+  <section id="matrix">
+    <div class="sec-head"><span class="sec-no">03</span><h2>핵심 쟁점 한눈에</h2></div>
+    <p class="sec-sub">가장 굵직한 다섯 축의 착지점을 한 표에. 파란 행 <span class="chip pr" style="font-size:.72rem">장로교</span> 가 이 자료의 기준점입니다. (가로로 스크롤됩니다 →)</p>
+    <div class="tscroll">
+      <table>
+        <thead>
+          <tr>
+            <th>교단</th><th>구원론</th><th>세례</th><th>성찬</th><th>교회정치</th><th>종말론(주류)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="home">
+            <th><span class="chip pr">장로교</span></th>
+            <td>칼빈주의 <b>TULIP</b><br><small>도르트 신조</small></td>
+            <td>언약의 표지<br><small>유아세례 ○</small></td>
+            <td><b>영적 임재설</b><br><small>칼빈</small></td>
+            <td><b>장로제</b><br><small>당회·노회·총회</small></td>
+            <td>무천년·후천년<br><small>언약신학</small></td>
+          </tr>
+          <tr>
+            <th><span class="chip lu">루터교</span></th>
+            <td>주권·이신칭의<br><small>신인협력 부정</small></td>
+            <td>원죄 씻음<br><small>유아세례 ○</small></td>
+            <td><b>공재설</b><br><small>안에·함께·아래</small></td>
+            <td>혼합(회중↔감독)</td>
+            <td>무천년</td>
+          </tr>
+          <tr>
+            <th><span class="chip an">성공회</span></th>
+            <td>병존(폭넓음)</td>
+            <td>성례<br><small>유아세례 ○</small></td>
+            <td>영적 임재설<br><small>+가톨릭 전통</small></td>
+            <td><b>감독제</b><br><small>주교·사제·부제</small></td>
+            <td>무천년(범위 허용)</td>
+          </tr>
+          <tr>
+            <th><span class="chip ba">침례교</span></th>
+            <td>병존(일반·특수)</td>
+            <td>상징·증언<br><small>유아세례 ✕ · 침수</small></td>
+            <td><b>기념설</b><br><small>츠빙글리</small></td>
+            <td><b>회중제</b><br><small>개교회 자율</small></td>
+            <td>전천년 강함<br><small>세대주의 영향</small></td>
+          </tr>
+          <tr>
+            <th><span class="chip me">감리교</span></th>
+            <td>복음적 아르미니안<br><small>선행적 은혜</small></td>
+            <td>은혜의 수단<br><small>유아세례 ○</small></td>
+            <td>영적 임재설</td>
+            <td>감독제(약한 감독)</td>
+            <td>역사적 후천년 경향</td>
+          </tr>
+          <tr>
+            <th><span class="chip ho">성결교</span></th>
+            <td>웨슬리안<br><small>완전성화</small></td>
+            <td>1996년~ 유아세례<br><small>침수 권유</small></td>
+            <td>영적 임재설</td>
+            <td>거의 장로제</td>
+            <td>전천년 경향</td>
+          </tr>
+          <tr>
+            <th><span class="chip pe">오순절</span></th>
+            <td>웨슬리안+성령세례</td>
+            <td>상징 · <b>성령세례</b><br><small>유아세례 ✕(다수)</small></td>
+            <td>영적 임재설</td>
+            <td>회중+장로 혼합</td>
+            <td><b>전천년·세대주의</b><br><small>전환난 휴거</small></td>
+          </tr>
+          <tr>
+            <th><span class="chip sa">구세군</span></th>
+            <td>웨슬리안</td>
+            <td colspan="2" style="text-align:center; background:#faf3f0"><b>세례·성찬 시행 안 함</b><br><small>내적 은혜 강조 · 성령론 우선</small></td>
+            <td>군대식 지휘</td>
+            <td>미강제(전천년 경향)</td>
+          </tr>
+          <tr class="ref">
+            <th><span class="chip rc">가톨릭</span></th>
+            <td>은총+공로(성례적)</td>
+            <td>세례로 은혜 전달<br><small>구원에 필수</small></td>
+            <td><b>화체설</b></td>
+            <td>감독제(교황 수위권)</td>
+            <td>무천년</td>
+          </tr>
+          <tr class="ref">
+            <th><span class="chip eo">정교회</span></th>
+            <td>신화(theosis)</td>
+            <td>세례로 은혜 전달</td>
+            <td>화체(미스터리)</td>
+            <td>감독제(총대주교)</td>
+            <td>무천년(사실상)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ④ 교단 카드 -->
+  <section id="cards">
+    <div class="sec-head"><span class="sec-no">04</span><h2>여덟 교단, 한 장씩</h2></div>
+    <p class="sec-sub">창시자 · 시작 · 발원지 · 전 세계 신자 · 한국 대표 교단 · 한 줄 정체성.</p>
+    <div class="dgrid">
+
+      <div class="dcard b-pr">
+        <h3>장로교 <span class="chip pr">기준점</span></h3>
+        <div class="en">Presbyterian / Reformed</div>
+        <p class="facts"><b>칼뱅·존 녹스</b> · 16세기(1536~) · 스위스 제네바·스코틀랜드 · 전 세계 약 <b>8천만~1억</b></p>
+        <div><span class="kr">예장 통합</span><span class="kr">예장 합동</span><span class="kr">예장 고신</span><span class="kr">기장</span></div>
+        <p class="oneline"><b>하나님의 주권 + 5 Sola.</b> 언약신학과 장로 정치, 부처→칼뱅→녹스로 이어진 개혁 전통.</p>
+      </div>
+
+      <div class="dcard b-lu">
+        <h3>루터교</h3>
+        <div class="en">Lutheran</div>
+        <p class="facts"><b>마르틴 루터</b> · 1517(95개조) · 독일 · 전 세계 약 <b>7,800만</b></p>
+        <div><span class="kr">기독교한국루터회</span></div>
+        <p class="oneline"><b>이신칭의의 원조.</b> 개신교 중 전통을 가장 많이 보존. 칭의(복음) 선포가 예배의 심장.</p>
+      </div>
+
+      <div class="dcard b-an">
+        <h3>성공회</h3>
+        <div class="en">Anglican</div>
+        <p class="facts"><b>헨리 8세(정치)·크랜머(신학)</b> · 1534 · 잉글랜드 · 전 세계 약 <b>8,500만~9,700만</b></p>
+        <div><span class="kr">대한성공회</span></div>
+        <p class="oneline"><b>중용(Via Media).</b> 로마와 개신교의 극단을 지양. 공동기도서 중심, 고·저·광교회파 공존.</p>
+      </div>
+
+      <div class="dcard b-ba">
+        <h3>침례교</h3>
+        <div class="en">Baptist</div>
+        <p class="facts"><b>존 스미스·헬위스</b> · 1609 · 네덜란드/잉글랜드 · 전 세계 약 <b>1억(광의)</b></p>
+        <div><span class="kr">기독교한국침례회</span></div>
+        <p class="oneline"><b>거듭난 신자의 교회.</b> 신자의 세례(침수)·개교회 자율·정교분리. 성찬은 상징(기념설).</p>
+      </div>
+
+      <div class="dcard b-me">
+        <h3>감리교</h3>
+        <div class="en">Methodist</div>
+        <p class="facts"><b>존 웨슬리</b> · 1738(회심) · 잉글랜드 · 전 세계 약 <b>8천만</b></p>
+        <div><span class="kr">기독교대한감리회</span></div>
+        <p class="oneline"><b>선행적 은혜와 완전성화.</b> 규칙적 경건(Method)과 뜨거운 찬송(찰스 웨슬리). 사회 성결.</p>
+      </div>
+
+      <div class="dcard b-ho">
+        <h3>성결교</h3>
+        <div class="en">Holiness</div>
+        <p class="facts"><b>웨슬리안 성결운동</b> · 19세기 후반 · 미국 · 한국 1907(김상준·정빈)</p>
+        <div><span class="kr">기독교대한성결교회</span><span class="kr">예수교대한성결교회</span></div>
+        <p class="oneline"><b>완전 성화 + 사중복음</b>(중생·성결·신유·재림). 뜨거운 부흥회적 정서.</p>
+      </div>
+
+      <div class="dcard b-pe">
+        <h3>오순절 (순복음)</h3>
+        <div class="en">Pentecostal</div>
+        <p class="facts"><b>파햄·시무어(아주사)</b> · 1901/1906 · 미국 · 전 세계 약 <b>2.8억(광의 6억+)</b></p>
+        <div><span class="kr">기독교대한하나님의성회</span><span class="kr">여의도순복음교회</span></div>
+        <p class="oneline"><b>성령세례와 방언.</b> 회심 이후의 성령세례, 오중복음. 체험적·은사 중심 예배.</p>
+      </div>
+
+      <div class="dcard b-sa">
+        <h3>구세군</h3>
+        <div class="en">Salvation Army</div>
+        <p class="facts"><b>윌리엄·캐서린 부스</b> · 1865 · 영국 런던 · 전 세계 약 <b>170만</b></p>
+        <div><span class="kr">구세군대한본영</span></div>
+        <p class="oneline"><b>군대식 조직으로 빈민을 구원.</b> 성례를 시행하지 않고 실천·구제로 복음을 산다.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ⑤ 9축 심층 -->
+  <section id="axes">
+    <div class="sec-head"><span class="sec-no">05</span><h2>9개 축으로 깊이 보기</h2></div>
+    <p class="sec-sub">각 축을 눌러 펼치세요. 세 핵심 쟁점(구원론·세례·성찬)에는 <span class="chip" style="background:var(--view); font-size:.72rem">개혁주의 관점</span> 박스와 1차 자료 인용을 붙였습니다.</p>
+
+    <!-- ① 형성사 -->
+    <details class="axis" open>
+      <summary><span class="axl"><span class="axno">1</span>형성사·정체성</span></summary>
+      <div class="abody">
+        <p>모든 개신교는 <b>종교개혁(1517)</b>이라는 한 사건의 후예입니다. 이후 갈라진 순서:</p>
+        <ul>
+          <li><span class="chip lu">루터교</span> 1517 루터 — 교황권 거부 + <b>전통은 보존</b></li>
+          <li><span class="chip pr">장로교</span> 부처→칼뱅→녹스(1560 스코틀랜드, 국가 차원 장로교 최초)</li>
+          <li><span class="chip an">성공회</span> 1534 헨리 8세 수장령 → 39개 신조 → <b>중용(Via Media)</b></li>
+          <li><span class="chip ba">침례교</span> 1609 존 스미스(암스테르담) — 재세례파를 만나 '신자의 세례' 수용</li>
+          <li><span class="chip me">감리교</span> 옥스퍼드 Holy Club → 웨슬리 회심(1738) → 야외 설교</li>
+          <li><span class="chip ho">성결교</span> 19세기 성결운동 — 완전성화 강조 · 사중복음</li>
+          <li><span class="chip pe">오순절</span> 파햄(1901)·시무어 아주사 부흥(1906) — 성령세례·방언</li>
+          <li><span class="chip sa">구세군</span> 1865 부스 — 감리교에서 나와 군대식 조직·성례 거부</li>
+        </ul>
+        <p><small>참고: <span class="chip rc">가톨릭</span>·<span class="chip eo">정교회</span> 는 1054년 대분열로 갈라진, 종교개혁 <b>이전</b>의 두 전통입니다.</small></p>
+      </div>
+    </details>
+
+    <!-- ② 구원론 -->
+    <details class="axis">
+      <summary><span class="axl"><span class="axno">2</span>구원론 <span class="cov full">개혁주의 관점</span></span></summary>
+      <div class="abody">
+        <p>공통 전제 — 칼빈주의도 아르미니안도 <b>"구원은 오직 그리스도를 통한 하나님의 은혜"</b>라고 봅니다(둘 다 반펠라기우스). 갈림길은 <b>예정이냐 자유의지냐</b>.</p>
+        <ul>
+          <li><span class="chip pr">장로교</span><span class="chip lu">루터교</span> <b>칼빈주의 TULIP</b>(무조건 선택·제한 속죄·전적 타락·불가항력적 은혜·성도의 견인). 루터교는 예정론에서 개혁주의와 한 계열이며 이신칭의를 가장 강조.</li>
+          <li><span class="chip me">감리교</span><span class="chip ho">성결교</span><span class="chip pe">오순절</span><span class="chip sa">구세군</span> <b>복음적 아르미니우스주의</b> — 선행적 은혜(prevenient grace)로 인간이 하나님과 협력. 웨슬리는 1784년 39개조에서 칼뱅의 예정론 조항을 삭제.</li>
+          <li><span class="chip ba">침례교</span><span class="chip an">성공회</span> <b>병존형</b> — 일반 속죄(아르미니안)와 제한 속죄(개혁주의)가 교회별로 공존.</li>
+        </ul>
+        <div class="quote">
+          <b>아르미니우스 5개 항변조항</b>(요지) — ① 믿고 끝까지 인내할 자를 구원하기로 결정 ② 그리스도는 모든 사람을 위해 죽으심 ③ 사람은 스스로 구원의 은혜를 갖지 못함 ④ 하나님의 은혜는 모든 선의 시작이나 <b>불가항력적이지는 않다</b> ⑤ 신자가 은혜에서 떨어질 수 있는지는 더 연구되어야 함.
+          <span class="src">— 볼트 「기독교 교파 한 눈에 보기」</span>
+        </div>
+        <div class="view">
+          <div class="vlab">개혁주의 관점</div>
+          <p>볼트는 칼빈주의를 규범으로 제시합니다 — <b>"칼빈주의만이 인간의 구원에 대해 하나님께 온전히 영광을 돌리고, 신자에게 구원의 확신을 준다."</b> "칼빈주의의 하나님은 불공평하다"는 반론에 대해서는, <b>"불공평하다는 것은 이미 전적 타락(우리가 은혜받을 자격 없음)을 부정하는 말"</b>이라고 답합니다. 다만 아르미니안 역시 공로주의가 아님(거액의 장학금을 받는다고 그것이 내 공로가 되지 않듯)을 공정하게 병기합니다.</p>
+        </div>
+      </div>
+    </details>
+
+    <!-- ③ 세례 -->
+    <details class="axis">
+      <summary><span class="axl"><span class="axno">3</span>세례 <span class="cov full">개혁주의 관점</span></span></summary>
+      <div class="abody">
+        <p><b>의미</b>가 교단마다 다릅니다.</p>
+        <ul>
+          <li><span class="chip lu">루터교</span> 원죄를 씻음 · <span class="chip pr">장로교</span> 언약백성 합류의 표지·인(印) · <span class="chip ba">침례교</span> 내적 변화의 공개적 증언 · <span class="chip me">감리교</span> 은혜의 수단인 성례</li>
+          <li><b>효과</b> — <span class="chip rc">가톨릭</span><span class="chip eo">정교회</span> 세례 자체로 은혜 전달(구원에 필수) ↔ <span class="chip ba">침례교</span> 상징일 뿐(믿음이 있으면 세례 없이도 구원 가능)</li>
+          <li><b>유아세례</b> — 찬성: <span class="chip lu">루터</span><span class="chip pr">장로</span><span class="chip an">성공회</span><span class="chip me">감리</span> / 반대(신자세례): <span class="chip ba">침례</span><span class="chip pe">오순절</span><span class="chip sa">구세군</span> / <span class="chip ho">성결교</span>는 1996년부터 시행</li>
+          <li><b>방법</b> — 대부분 자유(침수·점수·주수), 핵심은 '정결(Purification)'. <span class="chip ba">침례교</span>는 <b>침수례만</b> 인정(들어감=죽음, 잠김=장사, 나옴=부활).</li>
+          <li><span class="chip pe">오순절</span> 별도로 <b>성령세례</b>(물세례와 구분, 초기 증거=방언)를 강조.</li>
+        </ul>
+        <div class="quote">
+          "물은 절대 그런 일을 못합니다. 그러나 하나님의 말씀이 물과 함께, 그 곁에 있기 때문에 가능합니다." — 루터 『소교리문답』: "믿고 세례를 받는 사람은 구원을 얻을 것이요(막16:16)."
+          <span class="src">— 세례의 효능을 '말씀과 믿음'에 두는 루터교 입장</span>
+        </div>
+        <div class="view">
+          <div class="vlab">개혁주의 관점</div>
+          <p>볼트는 유아세례를 <b>언약신학</b>으로 정초합니다 — ① 구원의 주도권이 하나님께 있음을 드러내고 ② 하나님의 언약에 자녀가 포함되며(행2:39 "너희와 너희 자녀") ③ 온 집안 세례(고넬료·루디아·빌립보 간수)와 ④ <b>할례와의 연속성</b>(골2:11-12)에 근거합니다. <b>"세례를 개인의 결단과만 연결짓는 것은 성경이 아니라 서구 개인주의의 산물"</b>이라고 봅니다. 물론 침례교의 "새 언약은 혈통이 아니라 믿음으로"라는 반론도 함께 존중합니다.</p>
+        </div>
+      </div>
+    </details>
+
+    <!-- ④ 성찬 -->
+    <details class="axis">
+      <summary><span class="axl"><span class="axno">4</span>성찬 <span class="cov full">개혁주의 관점</span></span></summary>
+      <div class="abody">
+        <p>떡과 잔 안에 그리스도가 <b>어떻게</b> 임하시는가 — 네 입장으로 갈립니다.</p>
+        <ul>
+          <li><b>화체설</b> <span class="chip rc">가톨릭</span><span class="chip eo">정교회</span> — 축성 때 본질이 살과 피로 변함(정교회는 '미스터리'로 남김).</li>
+          <li><b>공재설</b> <span class="chip lu">루터교</span> — 변화는 없으나 살과 피가 떡·잔 <b>안에·함께·아래</b> 실제로 임재.</li>
+          <li><b>기념설(상징설)</b> <span class="chip ba">침례교</span> — 츠빙글리. "이것은 내 몸이다 = 내 몸을 의미한다." 과거를 회상하는 기념.</li>
+          <li><b>영적 임재설</b> <span class="chip pr">장로교</span><span class="chip an">성공회</span><span class="chip me">감리교</span><span class="chip ho">성결교</span><span class="chip pe">오순절</span> — 칼빈. 육체로는 아니나 <b>성령으로 실재 임재</b>, 취할 때 주님과의 영적 연합이 일어남.</li>
+          <li><span class="chip sa">구세군</span> — 성례 자체를 시행하지 않음(선교의 부담을 덜고 성령론을 우선).</li>
+        </ul>
+        <div class="quote">
+          "떡과 잔에 의미를 더할수록 결국 미신이 된다 … 성찬은 결혼식 때 찍은 사진과 비슷하다(과거의 기뻤던 순간을 회상하며 즐거워하는 것)." — 츠빙글리(기념설)
+          <span class="src">— 볼트 「신학 BlockBuster_026 성만찬 논쟁」</span>
+        </div>
+        <div class="view">
+          <div class="vlab">개혁주의 관점</div>
+          <p>칼빈은 기념설의 <b>잘못된 이분법</b>을 지적합니다 — <b>"왜 '화체냐 기념이냐' 둘 중 하나를 택해야 하는가? 성찬에는 주님이 임재하시고, 또한 기념이다."</b> 초대교부(이그나티우스·유스티누스)의 지지를 들어 기념설보다 영적임재설이 전통에 부합한다고 논증합니다. 성례의 유익은 <b>"성례 자체의 효능이 아니라, 성례를 통해 역사하시는 성령의 사역"</b>에서 옵니다(언약의 표시이자 인침).</p>
+        </div>
+      </div>
+    </details>
+
+    <!-- ⑤ 교회정치 -->
+    <details class="axis">
+      <summary><span class="axl"><span class="axno">5</span>교회정치</span></summary>
+      <div class="abody">
+        <ul>
+          <li><b>감독제</b> — 감독에게 상위 권한. <span class="chip rc">가톨릭</span>(교황) <span class="chip eo">정교회</span>(총대주교) <span class="chip an">성공회</span>(주교·사제·부제) <span class="chip me">감리교</span>(약한 감독)</li>
+          <li><b>장로제</b> <span class="chip pr">장로교</span> — 목사는 '가르치는 장로', 개인에게 권한 없음. 치리회 <b>당회·노회·총회</b>. <span class="chip ho">성결교</span>도 거의 장로제로 수렴("대의 제도").</li>
+          <li><b>회중제</b> <span class="chip ba">침례교</span> — 개교회 자율·민주정치, 통일된 헌법·신조 없음(목사·집사 중심).</li>
+          <li><b>혼합형</b> <span class="chip lu">루터교</span>(나라별 회중제/감독제) <span class="chip pe">오순절</span>(회중+장로, 직분 자격에 성령세례 체험) · <span class="chip sa">구세군</span>은 군대식 지휘체계(대장→사관→병사).</li>
+        </ul>
+      </div>
+    </details>
+
+    <!-- ⑥ 성령론·은사 -->
+    <details class="axis">
+      <summary><span class="axl"><span class="axno">6</span>성령론·은사</span></summary>
+      <div class="abody">
+        <p><b>성령세례</b>를 어떻게 보는가로 갈립니다.</p>
+        <ul>
+          <li><span class="chip ho">성결교</span> 성령세례 = 내적 성결을 주는 <b>두 번째 은혜</b></li>
+          <li><span class="chip pe">오순절</span> 성령세례의 1차 증거는 <b>방언</b>(회심과 구분되는 경험)</li>
+          <li><span class="chip pr">장로교</span><span class="chip lu">루터교</span> 성령세례를 회심과 별개의 2차 경험으로 두지 않음(<b>은사중지론</b> 경향)</li>
+        </ul>
+        <p><b>은사중지론</b>(신약의 표적 은사는 교회의 기초를 놓은 뒤 종료됨 — 고전13:8-10의 '온전한 것'=계시 완성) ↔ <b>은사지속론</b>(오늘도 유효 — '온전한 것'=재림). 은사주의 3물결: 오순절주의(1900s) → 은사주의 운동(1950-60s, 교단 잔류) → 신사도(1980s~).</p>
+      </div>
+    </details>
+
+    <!-- ⑦ 성경관 -->
+    <details class="axis">
+      <summary><span class="axl"><span class="axno">7</span>성경관</span></summary>
+      <div class="abody">
+        <p><b>해석의 최종권위</b>가 분수령입니다.</p>
+        <ul>
+          <li><span class="chip rc">가톨릭</span> 교황 · <span class="chip eo">정교회</span> 공의회 · <b>개신교 전 교단</b> 성경이 교회보다 상위(오직 성경).</li>
+          <li><span class="chip lu">루터교</span> 오직 성경이되 <b>전통을 거부하지 않음</b> · <span class="chip pr">장로교</span> 성경의 충족성·명확성(웨스트민스터) · <span class="chip an">성공회</span> 성경+전통 균형 · <span class="chip ba">침례교</span> 개인의 성경 해석권 강조, 신조 비중 낮음.</li>
+        </ul>
+        <p>종교개혁의 긴장(BlockBuster_044): "성경은 명확하다" → 그러나 "해석으로 갈릴 수 있다" → 멜랑히톤의 <b>아디아포라</b>(용납되는 차이의 영역). <b>"개신교의 역사는 교단분열의 역사 — 핵심 교리에만 동의하면 다른 차이는 존중."</b></p>
+      </div>
+    </details>
+
+    <!-- ⑧ 종말론 -->
+    <details class="axis">
+      <summary><span class="axl"><span class="axno">8</span>종말론 <span class="cov ext">외부 보강</span></span></summary>
+      <div class="abody">
+        <p>천년왕국을 어떻게 보는가 — <b>전천년</b>(재림 후 천년) · <b>후천년</b>(복음 승리 후 재림) · <b>무천년</b>(현재를 상징적 천년기로). 대다수 교단은 하나로 강제하지 않고 범위를 허용합니다.</p>
+        <div class="poles">
+          <div class="pole a">
+            <h4>무천년·후천년 (언약신학)</h4>
+            <p><span class="chip pr">장로교</span><span class="chip lu">루터교</span><span class="chip an">성공회</span> — 세대주의를 배격하는 것이 개혁주의 정통. 무천년의 전통근거는 아우구스티누스·칼빈·벌코프·후크마.</p>
+          </div>
+          <div class="pole-mid">↔</div>
+          <div class="pole b">
+            <h4>전천년·세대주의</h4>
+            <p><span class="chip pe">오순절</span><span class="chip ho">성결교</span> + 근본주의 <span class="chip ba">침례교</span> — 임박한 재림·전환난 휴거·7년 대환난 기대. <span class="chip me">감리교</span>는 역사적으로 후천년 쪽.</p>
+          </div>
+        </div>
+        <div class="view">
+          <div class="vlab">개혁주의 관점</div>
+          <p>볼트는 무천년설을 개혁주의의 홈 포지션으로 둡니다. 요한계시록은 공포의 시간표가 아니라 <b>"핍박당하던 신자들에게, 죽임당하신 어린 양의 비폭력적 방식으로 끝까지 견디고 승리하자고 격려하는 책"</b>이라는 것 — 세대주의적 공포 종말론('동기가 두려움')과 대비됩니다.</p>
+        </div>
+      </div>
+    </details>
+
+    <!-- ⑨ 예배 형태 -->
+    <details class="axis">
+      <summary><span class="axl"><span class="axno">9</span>예배 형태 <span class="cov ext">외부 보강</span></span></summary>
+      <div class="abody">
+        <p>고정된 <b>전례(예전) 중심 ↔ 자유로운 예배</b>의 스펙트럼입니다.</p>
+        <ul>
+          <li><b>최고교회(성례 중심)</b> <span class="chip rc">가톨릭</span>(미사) <span class="chip eo">정교회</span>(신성전례) — 성찬이 정점, 정교한 전례·전례력.</li>
+          <li><b>고교회~중간</b> <span class="chip an">성공회</span> <b>공동기도서</b> 중심, 성체성사가 주일예배의 중심 · <span class="chip lu">루터교</span> 전례 보존적, 잦은 성찬 + 칭의 선포.</li>
+          <li><b>중간</b> <span class="chip me">감리교</span> 성찬 중시 전통 + 실제론 설교 중심, 강한 찬송.</li>
+          <li><b>저교회(말씀·자유)</b> <span class="chip pr">장로교</span> 설교 중심·규정적 원리·자유기도(성찬 월1회~분기) · <span class="chip ba">침례교</span> 설교가 절대 중심, 성찬은 상징 규례 · <span class="chip ho">성결교</span> 부흥회적.</li>
+          <li><b>은사 중심</b> <span class="chip pe">오순절</span> 방언·통성기도·뜨거운 경배, 형식 최소.</li>
+          <li><b>비성례</b> <span class="chip sa">구세군</span> 세례·성찬 없이 설교·간증·브라스밴드·구제.</li>
+        </ul>
+      </div>
+    </details>
+  </section>
+
+  <!-- ⑥ 한국 지형도 -->
+  <section id="korea">
+    <div class="sec-head"><span class="sec-no">06</span><h2>한국 교단 지형도</h2></div>
+    <p class="sec-sub">한국 개신교는 <b>압도적으로 장로교 우세</b>. 아래 수치는 각 교단 총회 자체 발표(재적 기준)이며, 대부분 2013년경 정점 이후 <b>감소 추세</b>입니다.</p>
+    <div class="tscroll">
+      <table>
+        <thead><tr><th>계열</th><th>대표 한국 교단</th><th>교세(대략)</th><th>비고</th></tr></thead>
+        <tbody>
+          <tr class="home"><th><span class="chip pr">장로교</span></th><td>예장 합동 / 예장 통합</td><td>각 약 <b>225만 / 230만</b></td><td>양강. 둘 합쳐 450만+ (감소세)</td></tr>
+          <tr><th><span class="chip pr">장로교</span></th><td>예장 백석 · 고신 · 기장 외 100+</td><td>백석 ~150만(⚠︎) · 고신 ~42만</td><td>한국 장로교는 극도로 분열</td></tr>
+          <tr><th><span class="chip me">감리교</span></th><td>기독교대한감리회(기감)</td><td>약 <b>110만</b></td><td>단일 교단으로 장로교 다음</td></tr>
+          <tr><th><span class="chip pe">오순절</span></th><td>기독교대한하나님의성회(기하성)</td><td>약 <b>115만</b></td><td>여의도순복음 단일교회 ~57만(세계 최대)</td></tr>
+          <tr><th><span class="chip ho">성결교</span></th><td>기독교대한성결교회(기성)</td><td>약 <b>38만</b></td><td>성결교 최대(예성 별도)</td></tr>
+          <tr><th><span class="chip ba">침례교</span></th><td>기독교한국침례회(기침)</td><td>약 <b>29만</b></td><td>—</td></tr>
+          <tr><th><span class="chip an">성공회</span></th><td>대한성공회</td><td>공식 ~5만(실세 1만 미만⚠︎)</td><td>3개 교구</td></tr>
+          <tr><th><span class="chip lu">루터교</span></th><td>기독교한국루터회</td><td>~4천 명(2009⚠︎)</td><td>한국에서 존재감 작음</td></tr>
+          <tr><th><span class="chip sa">구세군</span></th><td>구세군대한본영</td><td>영문 250여 개</td><td>자선냄비 등 사회복지 영향력 큼</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="disc">⚠︎ = 수치 불확실(오래됐거나 자체 집계 논란). 한 줄 요약: <b>장로교(합동·통합) ≫ 감리교 &gt; 성결·침례·오순절 &gt; 성공회·루터·구세군.</b> 전 교단 감소 추세.</p>
+  </section>
+
+  <!-- 맺음 -->
+  <section id="close">
+    <div class="sec-head"><span class="sec-no">07</span><h2>맺음 — 통일이 아니라 화합</h2></div>
+    <div class="closing">
+      <h3>여덟 갈래, 그러나 한 주님</h3>
+      <p>교단을 배우는 목적은 <span class="accent">누가 옳고 그른지 줄 세우는 것이 아니라, 한 복음이 어떻게 다양하게 표현되는지 이해하는 것</span>입니다.</p>
+      <p>우리는 <b>개혁주의(장로교)를 집(home base)으로</b> 서 있습니다. 예정 안의 은혜, 언약의 세례, 성령으로 임하시는 성찬, 장로들의 겸손한 치리 — 이것이 우리가 가장 성경적이라 믿는 자리입니다.</p>
+      <p>그러나 <span class="accent">차이를 과장하지도, 공통점을 축소하지도 않습니다.</span> 멜랑히톤의 지혜대로 — <b>핵심 교리에 동의하는 형제라면, 나머지 차이는 존중</b>합니다. 그것이 "오직 성경, 오직 은혜"를 함께 고백하는 한 가족의 예의입니다.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p><b>출처</b> — 1차 근거: 옵시디언보관함 「기독교 교파 한 눈에 보기」 및 「신학 BlockBuster」 시리즈(구원론·세례·성찬·은사·종말·종교개혁). 도르트 신조·아르미니우스 항변조항·아우크스부르크 신앙고백·39개조·웨스트민스터 표준 등 각 교단 신앙고백. 한국 교세: 각 교단 총회 발표·언론·백과 교차확인. 전 세계 신자: 각 교단 세계연맹·표준 레퍼런스.</p>
+    <p style="margin-top:8px">개혁주의 관점으로 정리 · 교육/내부 공유용 · 통계는 발표 기준(실제 출석과 차이 있음)</p>
+  </footer>
+
+</div>
+</body>
+</html>
